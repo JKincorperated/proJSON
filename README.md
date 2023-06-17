@@ -37,7 +37,7 @@ pip install proJSON
 
 "bytesExample" : {
     "type": "bytes",   # Set bytes type
-    "byte": 1          # Set max size of string ( the max size of the string is calculated by (2^(8*n)-1). if n is 1 then the max size is 255) (optional defaults to 2)
+    "maxlen": 1          # Set max size of string ( the max size of the string is calculated by (2^(8*n)-1). if n is 1 then the max size is 255) (optional defaults to 2)
 } 
 
 "dirExample" : {
@@ -67,7 +67,7 @@ template = {
     },
     "bytesExample" : {
         "type": "bytes",
-        "byte": 1
+        "maxlen": 1
     },
     "dirExample" : {
         "type": "dir",
