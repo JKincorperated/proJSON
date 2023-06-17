@@ -1,4 +1,7 @@
-from ..src.proJSON import Crafter
+import sys, os
+sys.path.append(os.path.realpath(os.path.dirname(__file__)+"/../src")) # Yes, it is hacky and Yes, it is not mine.
+
+from proJSON import Crafter
 
 def test_encode():
     template = {
