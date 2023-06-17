@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "protoJSON"
-version = "0.1.0"
+version = "1.0.0"
 authors = [
   { name="JKinc", email="communications@jkinc.co.uk" },
 ]
