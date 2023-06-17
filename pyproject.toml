@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "protoJSON"
+name = "proJSON"
 version = "1.0.0"
 authors = [
   { name="JKinc", email="communications@jkinc.co.uk" },
@@ -18,5 +18,5 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/The-Geiger-Network-Project/protoJSON/tree/main"
-"Bug Tracker" = "https://github.com/The-Geiger-Network-Project/protoJSON/tree/main/issues"
+"Homepage" = "https://github.com/The-Geiger-Network-Project/proJSON/tree/main"
+"Bug Tracker" = "https://github.com/The-Geiger-Network-Project/proJSON/tree/main/issues"

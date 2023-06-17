@@ -1,11 +1,11 @@
 class crafter:
-    def __init__(self, protoJSON):
-        self.protoJSON = protoJSON
+    def __init__(self, proJSON):
+        self.proJSON = proJSON
 
     def decode(self, data: bytes):
         ret = {}
         offset = 0
-        for k, v in self.protoJSON.items():
+        for k, v in self.proJSON.items():
             if v["type"] == "int":
                 ret[k] = int.from_bytes(data[offset:offset+v["byte"]], "big")
                 offset += v["byte"]
@@ -48,7 +48,7 @@ class crafter:
 
     def encode(self, data: dict):
         ret = b""
-        for k, v in self.protoJSON.items():
+        for k, v in self.proJSON.items():
             item = data[k]
             if v["type"] == "int":
                 ret += int.to_bytes(item, v["byte"], "big")
