@@ -3,12 +3,12 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "example_package_YOUR_USERNAME_HERE"
-version = "0.0.1"
+name = "protoJSON"
+version = "0.1.0"
 authors = [
-  { name="Example Author", email="author@example.com" },
+  { name="James Kempton", email="james.kempton@jkinc.co.uk" },
 ]
-description = "A small example package"
+description = "A python library to compress a dict into a bytearray."
 readme = "README.md"
 requires-python = ">=3.7"
 classifiers = [
@@ -18,5 +18,5 @@ classifiers = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/pypa/sampleproject"
-"Bug Tracker" = "https://github.com/pypa/sampleproject/issues"
+"Homepage" = "https://github.com/The-Geiger-Network-Project/protoJSON/tree/main"
+"Bug Tracker" = "https://github.com/The-Geiger-Network-Project/protoJSON/tree/main/issues"
