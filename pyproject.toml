@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "protoJSON"
 version = "0.1.0"
 authors = [
-  { name="James Kempton", email="james.kempton@jkinc.co.uk" },
+  { name="JKinc", email="communications@jkinc.co.uk" },
 ]
 description = "A python library to compress a dict into a bytearray."
 readme = "README.md"
