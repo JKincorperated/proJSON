@@ -53,7 +53,7 @@ pip install proJSON
 
 ``` python
 
-from projson import Crafter
+from proJSON import Crafter
 
 template = {
     # See the [types section](###Types) for how to make this.
