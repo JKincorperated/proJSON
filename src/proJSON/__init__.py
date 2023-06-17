@@ -1,4 +1,4 @@
-class crafter:
+class Crafter:
     def __init__(self, proJSON):
         self.proJSON = proJSON
 
