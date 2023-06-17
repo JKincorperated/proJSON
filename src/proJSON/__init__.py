@@ -81,13 +81,13 @@ class Crafter:
                 for subk, subv in v["subdirs"].items():
                     subitem = data[k][subk]
                     if subv["type"] == "int":
-                        if isinstance(item, int):
+                        if isinstance(subitem, int):
                             pass
                         else:
                             raise InvalidType(f"{str(item)} is supposed to be an int, but it's a {str(type(item))}")
                         ret += int.to_bytes(subitem, subv["byte"], "big")
                     elif subv["type"] == "string":
-                        if isinstance(item, str):
+                        if isinstance(subitem, str):
                             pass
                         else:
                             raise InvalidType(f"{str(item)} is supposed to be a str, but it's a {str(type(item))}")
@@ -96,7 +96,7 @@ class Crafter:
                         ret += int.to_bytes(len(bytestr), maxlen, "big")
                         ret += bytestr
                     elif subv["type"] == "bytes":
-                        if isinstance(item, bytes):
+                        if isinstance(subitem, bytes):
                             pass
                         else:
                             raise InvalidType(f"{str(item)} is supposed to be bytes, but it's a {str(type(item))}")
