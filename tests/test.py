@@ -86,7 +86,6 @@ def encodeTest():
     assert crafter.encode(exampledata) == b'\xc8\x0cHello World!\x00\rThis is bytes\xc9\x0cHello Again!\x00\x14Again, This is bytes'
 
 def decodeTest():
-    def encodeTest():
     template = {
         "intExample" : {
             "type": "int",
