@@ -2,6 +2,8 @@
 
 A python library to compress a dict into a bytearray.
 
+[![Tests](https://github.com/The-Geiger-Network-Project/proJSON/actions/workflows/python-app.yml/badge.svg)](https://github.com/The-Geiger-Network-Project/proJSON/actions/workflows/python-app.yml)
+
 ## Install
 
 ``` sh
