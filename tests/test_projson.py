@@ -15,7 +15,7 @@ def test_encode():
         },
         "bytesExample" : {
             "type": "bytes",
-            "maxlen": 1
+            "maxlen": 2
         },
         "dirExample" : {
             "type": "dir",
@@ -30,7 +30,7 @@ def test_encode():
                 },
                 "bytesExample" : {
                     "type": "bytes",
-                    "maxlen": 1
+                    "maxlen": 2
                 },
             }
         } 
@@ -63,7 +63,7 @@ def test_decode():
         },
         "bytesExample" : {
             "type": "bytes",
-            "maxlen": 1
+            "maxlen": 2
         },
         "dirExample" : {
             "type": "dir",
@@ -78,7 +78,7 @@ def test_decode():
                 },
                 "bytesExample" : {
                     "type": "bytes",
-                    "maxlen": 1
+                    "maxlen": 2
                 },
             }
         } 
