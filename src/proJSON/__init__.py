@@ -27,7 +27,7 @@ class Crafter:
             else:
                 decompressed = frame.decompress(data)
                 
-            data = decompress
+            data = decompressed
 
         ret = {}
         offset = 0
