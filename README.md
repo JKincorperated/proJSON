@@ -37,7 +37,7 @@ pip install proJSON
 
 "bytesExample" : {
     "type": "bytes",   # Set bytes type
-    "maxlen": 1          # Set max size of string ( the max size of the string is calculated by (2^(8*n)-1). if n is 1 then the max size is 255) (optional defaults to 2)
+    "maxlen": 1        # Set max size of string ( the max size of the string is calculated by (2^(8*n)-1). if n is 1 then the max size is 255) (optional defaults to 2)
 } 
 
 "dirExample" : {
@@ -46,7 +46,13 @@ pip install proJSON
 } 
 
 "boolExample" : {
-    "type" : "bool"
+    "type" : "bool"    # Set bool type
+}
+
+"listExample" : {
+    "type" : "list",   # Set list type
+    "subtype": "int",  # Set list contents type to an "int"
+    "maxlen": 1        # The "maxlen" parameter for bytes or str (for "int" maxlen is still used instead of "byte")
 }
 
 ```

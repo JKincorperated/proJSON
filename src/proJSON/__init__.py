@@ -45,6 +45,31 @@ class Crafter:
             elif v["type"] == "bool":
                 ret[k] = bool(data[offset])
                 offset += 1
+            elif v["type"] == "list":
+                maxlen = v["maxlen"] if "maxlen" in v else 2
+                subret = []
+                while True:
+                    if data[offset] == b"0xff":
+                        break
+                    if v["subtype"] == "int":
+                        subret.append(int.from_bytes(data[offset:offset+maxlen], "big"))
+                        offset += maxlen
+                    elif v["subtype"] == "string":
+                        length = int.from_bytes(data[offset:offset+maxlen], "big")
+                        offset += maxlen
+                        bytestr = data[offset:offset+length]
+                        subret.append(bytestr.decode())
+                        offset += length
+                    elif v["subtype"] == "bytes":
+                        length = int.from_bytes(data[offset:offset+maxlen], "big")
+                        offset += maxlen
+                        subret.append(data[offset:offset+length])
+                        offset += length
+                    elif v["subtype"] == "bool":
+                        subret.append(bool(data[offset]))
+                        offset += 1
+                    
+                ret[k] = subret
         return ret
 
 
@@ -111,7 +136,44 @@ class Crafter:
                 else:
                     raise InvalidType(f"{str(item)} is supposed to be bool, but it's a {str(type(item))}")
                 ret += b"\x01" if item else b"\x00"
-        
+            elif v["type"] == "list":
+                for i in item:
+                    if v["subtype"] == "int":
+                        if isinstance(i, int):
+                            pass
+                        else:
+                            raise InvalidType(f"{str(item)} contains an invalid item : {str(type(item))}")
+                        
+                        ret += int.to_bytes(i, v["maxlen"], "big")
+
+                    if v["subtype"] == "bytes":
+                        if isinstance(i, bytes):
+                            pass
+                        else:
+                            raise InvalidType(f"{str(item)} contains an invalid item : {str(type(item))}")
+                        
+                        ret += int.to_bytes(len(i), v["maxlen"], "big")
+                        ret += i
+
+                    if v["subtype"] == "string":
+                        if isinstance(i, str):
+                            pass
+                        else:
+                            raise InvalidType(f"{str(item)} contains an invalid item : {str(type(item))}")
+                        
+                        ret += int.to_bytes(len(i.encode("utf-8")), v["maxlen"], "big")
+                        ret += i.encode("utf-8")
+
+                    if v["subtype"] == "bool":
+                        if isinstance(i, bool):
+                            pass
+                        else:
+                            raise InvalidType(f"{str(item)} contains an invalid item : {str(type(item))}")
+                        
+                        ret += b"\x01" if i else b"\x00"
+
+                    ret += b"\xff"
+                        
         return ret
     
 
