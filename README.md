@@ -65,7 +65,7 @@ pip install proJSON
 
 from proJSON import Crafter
 
-template = {
+schema = {
     # See the [types section](###Types) for how to make this.
     "intExample" : {
         "type": "int",
@@ -94,7 +94,7 @@ template = {
     } 
 }
 
-crafter = Crafter(template)
+crafter = Crafter(schema)
 
 ```
 
