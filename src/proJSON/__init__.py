@@ -206,7 +206,7 @@ class Crafter:
             if len(ret) > 256:
                 context = frame.create_compression_context()
                 compressed = frame.compress_begin(context)
-                for i in floor(len(ret) / 256):
+                for i in range(floor(len(ret) / 256)):
                     compressed += frame.compress_chunk(context, ret[i*256:(i+1)*256])
                 compressed += frame.compress_chunk(context, ret[floor(len(ret) / 256):floor(len(ret) / 256)+(len(ret) % 256)])
                 compressed += frame.compress_flush(context)
