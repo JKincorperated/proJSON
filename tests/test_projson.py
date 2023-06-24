@@ -59,7 +59,7 @@ def test_encode():
         "listExample" : [1,2,3]
     }
 
-    assert crafter.encode(exampledata) == b'\xc8\x0cHello World!\x00\rThis is bytes\xc9\x0cHello Again!\x00\x14Again, This is bytes\x01\x01\x02\x03'
+    assert crafter.encode(exampledata) == b'\xc8\x0cHello World!\x00\rThis is bytes\xc9\x0cHello Again!\x00\x14Again, This is bytes\x01\x01\x02\x03\xff'
 
 def test_decode():
     template = {

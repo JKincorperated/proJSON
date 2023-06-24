@@ -172,7 +172,7 @@ class Crafter:
                         
                         ret += b"\x01" if i else b"\x00"
 
-                    ret += b"\xff"
+                ret += b"\xff"
                         
         return ret
     
