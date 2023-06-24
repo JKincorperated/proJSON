@@ -18,7 +18,7 @@ classifiers = [
 ]
 
 dependencies = [
-    "pip install lz4==4.3.2"
+    "lz4 == 4.3.2"
 ]
 
 [project.urls]
