@@ -42,7 +42,9 @@ class Crafter:
                         subret[subk] = data[offset:offset+length]
                         offset += length
                 ret[k] = subret
-        
+            elif v["type"] == "bool":
+                ret[k] = bool(data[offset])
+                offset += 1
         return ret
 
 
@@ -103,6 +105,13 @@ class Crafter:
                         maxlen = subv["maxlen"] if "maxlen" in subv else 2
                         ret += int.to_bytes(len(subitem), maxlen, "big")
                         ret += subitem
+            elif v["type"] == "bool":
+                if isinstance(item, bool):
+                    pass
+                else:
+                    raise InvalidType(f"{str(item)} is supposed to be bool, but it's a {str(type(item))}")
+                ret += b"\x01" if item else b"\x00"
+        
         return ret
     
 

@@ -45,6 +45,10 @@ pip install proJSON
     "subdirs": {}      # A dictionary of int, string and byte types in the format above.
 } 
 
+"boolExample" : {
+    "type" : "bool"
+}
+
 ```
 
 ***Don't put a dir in another dir. It won't work***

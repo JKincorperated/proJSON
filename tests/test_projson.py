@@ -33,7 +33,10 @@ def test_encode():
                     "maxlen": 2
                 },
             }
-        } 
+        },
+        "boolExample" : {
+            "type": "bool"
+        }
     }
 
     crafter = Crafter(template)
@@ -46,10 +49,11 @@ def test_encode():
             "intExample2" : 201,
             "stringExample2": "Hello Again!",
             "bytesExample": b"Again, This is bytes"
-        }
+        },
+        "boolExample" : True
     }
 
-    assert crafter.encode(exampledata) == b'\xc8\x0cHello World!\x00\rThis is bytes\xc9\x0cHello Again!\x00\x14Again, This is bytes'
+    assert crafter.encode(exampledata) == b'\xc8\x0cHello World!\x00\rThis is bytes\xc9\x0cHello Again!\x00\x14Again, This is bytes\x01'
 
 def test_decode():
     template = {
@@ -81,7 +85,10 @@ def test_decode():
                     "maxlen": 2
                 },
             }
-        } 
+        },
+        "boolExample" : {
+            "type": "bool"
+        }
     }
 
     crafter = Crafter(template)
@@ -94,7 +101,8 @@ def test_decode():
             "intExample2" : 201,
             "stringExample2": "Hello Again!",
             "bytesExample": b"Again, This is bytes"
-        }
+        },
+        "boolExample" : True
     }
 
     x = crafter.encode(exampledata)
