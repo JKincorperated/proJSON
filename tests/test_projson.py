@@ -44,7 +44,7 @@ def test_encode():
         }
     }
 
-    crafter = Crafter(template)
+    crafter = Crafter(template, compression="dev")
 
     exampledata = {
         "intExample" : 200,

@@ -17,6 +17,10 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
+dependencies = [
+    "pip install lz4==4.3.2"
+]
+
 [project.urls]
 "Homepage" = "https://github.com/The-Geiger-Network-Project/proJSON/tree/main"
 "Bug Tracker" = "https://github.com/The-Geiger-Network-Project/proJSON/tree/main/issues"
