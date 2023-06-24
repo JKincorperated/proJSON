@@ -49,7 +49,7 @@ class Crafter:
                 maxlen = v["maxlen"] if "maxlen" in v else 2
                 subret = []
                 while True:
-                    if data[offset] == b"0xff":
+                    if data[offset] == 255:
                         break
                     if v["subtype"] == "int":
                         subret.append(int.from_bytes(data[offset:offset+maxlen], "big"))
