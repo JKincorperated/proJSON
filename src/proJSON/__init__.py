@@ -22,8 +22,10 @@ class Crafter:
                 context = frame.create_decompression_context()
                 decompressed = b""
                 for i in range(floor(len(data) / 256)):
-                    decompressed += frame.decompress_chunk(context, data[i*256:(i+1)*256])
-                decompressed += frame.decompress_chunk(context, data[floor(len(data) / 256):floor(len(data) / 256)+(len(data) % 256)])
+                    x, _, _ = frame.decompress_chunk(context, data[i*256:(i+1)*256])
+                    decompressed += x
+                x, _, _ = frame.decompress_chunk(context, data[floor(len(data) / 256):floor(len(data) / 256)+(len(data) % 256)])
+                decompressed += x
             else:
                 decompressed = frame.decompress(data)
                 
