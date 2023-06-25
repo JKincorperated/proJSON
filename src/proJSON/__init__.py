@@ -20,7 +20,7 @@ class Crafter:
         elif self.compression == "lz4":
             if len(data) > 256:
                 context = frame.create_decompression_context()
-                decompressed = frame.compress_begin(context)
+                decompressed = b""
                 for i in floor(len(data) / 256):
                     decompressed += frame.decompress_chunk(context, data[i*256:(i+1)*256])
                 decompressed += frame.decompress_chunk(context, data[floor(len(data) / 256):floor(len(data) / 256)+(len(data) % 256)])
