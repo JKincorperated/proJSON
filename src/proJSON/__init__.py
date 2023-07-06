@@ -6,7 +6,7 @@ class Crafter:
     def __init__(self, proJSON, compression="lz4"):
         self.proJSON = proJSON
         if compression != "lz4" and compression != "zlib" and compression != "dev":
-            print(f"The compression type {self.compression} is not supported. The current options are lz4, zlib and dev (no compression)")
+            print(f"The compression type {compression} is not supported. The current options are lz4, zlib and dev (no compression)")
             print("If you believe this is an error, please submit a bug report at https://github.com/The-Geiger-Network-Project/proJSON/issues")
             print("Defaulting to lz4 compression")
             self.compression = "lz4"
@@ -18,16 +18,7 @@ class Crafter:
         if self.compression == "zlib":
             data = decompress(data)
         elif self.compression == "lz4":
-            if len(data) > 256:
-                context = frame.create_decompression_context()
-                decompressed = b""
-                for i in range(floor(len(data) / 256)):
-                    x, _, _ = frame.decompress_chunk(context, data[i*256:(i+1)*256])
-                    decompressed += x
-                x, _, _ = frame.decompress_chunk(context, data[floor(len(data) / 256):floor(len(data) / 256)+(len(data) % 256)])
-                decompressed += x
-            else:
-                decompressed = frame.decompress(data)
+            decompressed = frame.decompress(data)
                 
             data = decompressed
 
@@ -205,15 +196,7 @@ class Crafter:
         if self.compression == "zlib":
             ret = compress(ret)
         elif self.compression == "lz4":
-            if len(ret) > 256:
-                context = frame.create_compression_context()
-                compressed = frame.compress_begin(context)
-                for i in range(floor(len(ret) / 256)):
-                    compressed += frame.compress_chunk(context, ret[i*256:(i+1)*256])
-                compressed += frame.compress_chunk(context, ret[floor(len(ret) / 256):floor(len(ret) / 256)+(len(ret) % 256)])
-                compressed += frame.compress_flush(context)
-            else:
-                compressed = frame.compress(ret)
+            compressed = frame.compress(ret)
                 
             ret = compressed
                         
